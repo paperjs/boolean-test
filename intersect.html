@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Offset Study</title>
+    <script src="paperjs/src/load.js"></script>
+    <script src="intersect.js"></script>
+    
+    <style>
+        #side{
+            position: absolute;
+            width: 150px;
+            top: 0px; right: 0px;
+            height: 100%;
+            padding: 0;
+            background-color: #A1A194;
+            overflow-y: scroll;
+            z-index: 1000;
+        }
+        #list{
+            list-style: none;
+            padding: 0;
+        }
+        #list li{
+            padding: 0;
+            margin: 0;
+            min-height: 25px;
+        }
+        #list li a{
+            text-decoration: none;
+            padding-left: 20px;
+            display: block;
+            font-family: "Lucida Grande", sans-serif;
+            font-size: 12px;
+            line-height: 25px;
+            color: #464646;
+        }
+        #list li a:hover{
+            background-color: #5B605F;
+            color: #FFFFFA;
+        }
+        #list li a:active, #list li a.active{
+            background-color: #BB5500;
+            color: #FFFFFA;
+        }
+        #cvs{
+            background-color: #FFFFFA;
+        }
+    </style>
+</head>
+<body style="margin:0; padding: 0">
+
+    <div id="side">
+        <ul id="list">
+        </ul>
+    </div>
+    <canvas id="cvs" resize></canvas>
+</body>
+</html>

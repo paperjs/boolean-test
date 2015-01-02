@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- IE 9: display inline SVG -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<script src="../paperjs/src/load.js"></script>
+<!-- <script src="debug.js"></script> -->
+<script type="text/paperscript" canvas="canvas">
+    var path1 = new Path({
+  segments: [
+    [10, 70],
+    [100, 70],
+    // a little triangle
+    [100, 200], [50, 150], [50, 200],
+    [100, 200], // unite has no problem when we use [100,201]
+    [100, 370],
+    [10, 370]
+  ],
+  closed: true,
+  // fillColor: "cyan",
+  // strokeColor: "black",
+  "opacity": 0.3
+  });
+
+var path2 = new Path({
+  segments: [[100,370],[200,370],[200,70],[100,70]],
+  closed: true,
+    // fillColor: "green",
+    // strokeColor: "black",
+    "opacity": 0.3
+});
+
+
+// expected: the triangle should not be part of the union
+var united = path2.unite(path1);
+united.set({fillColor: "red", opacity: 0.3});
+</script>
+</head>
+<body>
+<canvas id="canvas" width="400" height="300"></canvas>
+</body>
+</html>

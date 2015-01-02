@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- IE 9: display inline SVG -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<script src="../paperjs/src/load.js"></script>
+<!-- <script src="debug.js"></script> -->
+<script type="text/paperscript" canvas="canvas">
+    var segments = [
+        [50,210],[50,40],
+        [300,40],[300,100],
+        [250,100],[250,50],
+        [100,50],
+        [100,100], // unite() works when you remove the point [100,100]!
+        [100,200],
+        [250,200],[250,210]];
+
+    var cShaped =  new paper.Path({ segments: segments, closed: true});
+    // cShaped.set({fillColor: "red", opacity: 0.5, strokeColor: 'black'});
+
+    for (i=0; i < cShaped.segments.length; i++) {
+        new paper.Path.Circle({
+          center: cShaped.segments[i].point,
+          radius: 3,
+          fillColor: 'gray',
+          strokeColor: null
+        });
+    }
+
+
+    var triangle = new paper.Path( {
+      segments: [[250,100],[300,210],[300,100]],
+      closed: true});
+    // triangle.set({fillColor: "yellow", opacity: 0.5, strokeColor: 'black'});
+
+    var union = cShaped.unite(triangle);
+    union.set({ fillColor: "green", opacity: 0.5});
+</script>
+</head>
+<body>
+<canvas id="canvas" width="400" height="300"></canvas>
+</body>
+</html>

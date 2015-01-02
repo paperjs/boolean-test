@@ -1,0 +1,16 @@
+{
+  "libs": [
+    "node",
+    "ecma5",
+    "jquery"
+  ],
+  "loadEagerly": [
+    "../paperjs/src/**/*.js"
+  ],
+  "plugins": {
+    "requirejs": {
+      "baseURL": "./",
+      "paths": {}
+    }
+  }
+}
