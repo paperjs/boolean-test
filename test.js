@@ -64,11 +64,9 @@ function listSelect(e, target){
 
 function doCase (fcase) {
     drawSlopes(null, null, true);
-    mouseTarget.activate();
-    var ch = mouseTarget.children.concat(boolTarget.children);
-    for (var i = ch.length - 1; i >= 0; i--)
-        ch[i].remove();
-
+    mouseTarget.removeChildren();
+    boolTarget.removeChildren();
+    tmpTarget.removeChildren();
     boolTarget.activate();
     var op1 = getPath(fcase.op1);
     // markPoints(getSegments(op1), null, "#00f", 0.5);
@@ -105,8 +103,8 @@ function doCase (fcase) {
     annotate2(cp, false, 0.1);
     bPath = cp;
 
-    op1.remove();
-    op2.remove();
+    // op1.remove();
+    // op2.remove();
 
     paper.view.draw();
 }
@@ -165,7 +163,7 @@ function scrollToZoom(e) {
         scale = 1 + signDelta * map(modDelta, 0, 10, 0, 0.1);
     mouseTarget.scale(scale, point);
     boolTarget.scale(scale, point);
-    // tmpTarget.scale(scale, point);
+    tmpTarget.scale(scale, point);
     if(window.annotateLayer){
         annotateLayer.scale(scale, point);
         monCrvs.length = 0;
