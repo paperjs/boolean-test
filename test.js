@@ -21,7 +21,7 @@ window.onload = function(){
     // paper.install(window);
     paper.setup(document.getElementById("cvs"));
 
-    mouseTarget =paper.project.layers[0];
+    mouseTarget = new paper.Layer();
     boolTarget = new paper.Layer();
     tmpTarget = new paper.Layer();
 
@@ -53,9 +53,9 @@ window.onload = function(){
 function listSelect(e, target){
     var thisEl = e ? e.target : target.childNodes[0],
         caseTag = thisEl.childNodes[0].nodeValue,
-        activeEl = document.querySelectorAll("li.active"), el;
-    for (el in activeEl)
-        activeEl[el].className = "";
+        activeEl = document.querySelectorAll("li.active");
+    for (var i = 0; i < activeEl.length; i++)
+        activeEl[i].className = "";
     thisEl.parentNode.className = "active";
     thisEl.parentNode.scrollIntoViewIfNeeded();
 
@@ -321,8 +321,8 @@ function annotate2(path, clear, r){
         p1 = new paper.Path.Circle(crv.getSegment1().point, r);
         p1.style = stylePoints;
 
-        // var crss = pathMain._getWinding(segs[i].getCurve().getSegment1().getPoint());
-        var crss = crvs[i]._getWinding();
+        var crss = path._getWinding(segs[i].getCurve().getSegment1().getPoint());
+        // var crss = crvs[i]._getWinding();
         // var crss = getWindingContribution(segs[i].getCurve(), crvs);
 
         p = crv.getPoint(0.55);
