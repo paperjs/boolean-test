@@ -1,2 +1,2 @@
 #!/bin/sh
-node boolean-test.js data/union.json
+node --expose-gc boolean-test.js data/union.json

@@ -323,8 +323,8 @@ function annotate2(path, clear, r){
         // var crss = crvs[i]._getWinding();
         // var crss = getWindingContribution(segs[i].getCurve(), crvs);
 
-        p = crv.getPoint(0.55);
-        n = crv.getNormal(0.5).normalize(windLeft);
+        p = crv.getPointAt(0.55, true);
+        n = crv.getNormalAt(0.5, true).normalize(windLeft);
         p2 = p.add(n);
         text(p2, crss);
         // n = crv.getNormal(0.5).normalize(windLeft * -5);

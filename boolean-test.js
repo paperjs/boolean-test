@@ -122,6 +122,8 @@ for (i = 0, li = suit.length; i < li; i++) {
         res.remove();
         resOriginal.remove();
         utils.progress.update(casesDone, casesPassed, casesFailed);
+        if (global.gc)
+            global.gc();
     }
 }
 timeDiff = formatTimeIvl(utils.timer.end("test", "ms"));
