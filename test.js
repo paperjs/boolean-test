@@ -27,7 +27,8 @@ window.onload = function(){
 
     var list = document.getElementById('list'), liEl, aEl;
 
-    loadJSON("out/intersection-fail.json", function(data){
+    // loadJSON("out/union_issue_1-fail.json", function(data){
+    loadJSON("out/subtraction_issue_1-fail.json", function(data){
     // loadJSON("out/union-fail.json", function(data){
         for (var i = 0; i < data.cases.length; i++)
             failCases[data.cases[i].name] = data.cases[i];
